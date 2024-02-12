@@ -2,19 +2,19 @@ import type { Metadata } from "next"
 import { Source_Serif_4 } from "next/font/google"
 import "./globals.css"
 
-const sourceserif = Source_Serif_4({ subsets: ["cyrillic", "latin"]})
+const sourceserif = Source_Serif_4({ subsets: ["cyrillic", "latin"] })
 
 export const metadata: Metadata = {
   title: "Севастьян & Екатерина",
-  // description: "",
+  description: "💐",
   openGraph: {
     title: "Севастьян & Екатерина",
-  // description: "",
-    // url: "https://www....ru",
+    description: "💐",
+    url: "https://summer-wedding.vercel.app/",
   },
   twitter: {
     title: "Севастьян & Екатерина",
-  // description: "",
+    description: "💐",
     card: "summary_large_image",
   },
 }
