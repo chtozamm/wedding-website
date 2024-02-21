@@ -25,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={sourceserif.className}>{children}</body>
+    <html lang="ru">
+      <body className={`${sourceserif.className} flex flex-col bg-white text-base relative select-none selection:bg-black selection:bg-opacity-85 selection:text-white`}>{children}</body>
     </html>
   )
 }

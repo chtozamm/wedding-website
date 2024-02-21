@@ -23,3 +23,10 @@ export const schedule = {
     "20:00": "...",
   },
 }
+
+export const information = {
+  heading: "Дорогие друзья и родные,",
+  body: "Приглашаем вас...",
+  place: "Мальская долина",
+  date: "25 июля 2022 года",
+}

@@ -1,142 +1,81 @@
-"use client"
-
-import { motion } from "framer-motion"
 import {
-  Button,
   Header2,
   Header3,
-  Navigation,
   Section,
   ScheduleTable,
   TelegramIcon,
-} from "./components"
+} from "@/components"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+import { information } from "@/data"
 
 export default function Home() {
   return (
-    <div id="top" className="flex flex-col text-lg sm:pt-4">
-      <header className="flex-col gap-4 sm:flex sm:pt-8">
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ ease: "anticipate", duration: 2 }}
-          className="mx-auto hidden text-center text-4xl font-medium sm:block sm:text-6xl">
-          Севастьян & Екатерина
-        </motion.h1>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 0.75,
-            ease: "anticipate",
-            duration: 2,
-          }}>
-          <Navigation />
-        </motion.div>
-        <div className="relative min-h-screen flex w-screen items-center justify-center sm:hidden">
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ ease: "easeOut", duration: 1.5 }}
-            className="font-base absolute z-50 mx-auto flex flex-col items-center justify-center gap-4 text-center text-5xl sm:hidden sm:text-6xl sm:font-medium">
-            <span>Севастьян</span> <span>&</span> <span>Екатерина</span>
-          </motion.h1>
-        </div>
-        {/* Mobile */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, ease: "anticipate", duration: 1.5 }}
-          className="absolute h-screen top-0 z-10 flex w-screen items-center justify-center bg-gray-100 sm:hidden"
-        />
-        {/* END Mobile */}
-        
-      </header>
-      <main 
-      className="mx-auto flex w-full flex-col items-center justify-center gap-32 sm:gap-8 sm:pt-8">
-        {/* Desktop */}
-        <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "640px" }}
-          transition={{ delay: 1.25, ease: "anticipate", duration: 3 }}
-          className="relative hidden w-screen items-center justify-center bg-gray-100 sm:flex"
-        />
-        <motion.div
-          initial={{ height: "640px" }}
-          animate={{ height: 0 }}
-          transition={{
-            delay: 1.25,
-            ease: "anticipate",
-            duration: 3,
-          }}
-          className="relative hidden w-screen items-center justify-center sm:flex"
-        />
-        {/* END Desktop */}
-        <Section id="place">
-          <article className="flex w-full flex-col gap-8 mt-16">
-            <Header2>Дорогие друзья!</Header2>
-            <p className="w-full text-center text-lg">Приглашаем вас...</p>
+    <>
+      <Header />
+      <main className="mx-auto flex w-full flex-col items-center justify-center">
+        <Section id="place" className="select-text">
+          <article className="mt-16 flex w-full flex-col gap-8">
+            <Header2>{information.heading}</Header2>
+            <p className="w-full text-center text-lg">{information.body}</p>
           </article>
-          <div className="mt-32 flex flex-col items-center justify-center gap-2 text-2xl font-medium">
-            <p>Мальская долина</p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-2 text-2xl font-medium">
+            <p>{information.place}</p>
             <span className="w-full border-b"></span>
             <time dateTime="2022-07-15" className="text-xl font-normal">
-              15 июля 2022
+              {information.date}
             </time>
+            <br />
           </div>
         </Section>
-        <Section id="schedule">
+        <Section id="schedule" className="select-text">
           <Header2>Программа</Header2>
           <ScheduleTable />
         </Section>
         <Section id="dress-code">
+          {/* <span className="flex w-full items-center justify-center gap-3 stroke-black stroke-2">
+            <span className="w-full border-b"></span>
+            </span> */}
           <Header2>Дресс-код</Header2>
+          {/* <span className="flex w-full items-center justify-center gap-3 stroke-black stroke-2">
+            <span className="w-full border-b"></span>
+            <svg
+              viewBox="0 0 79 35"
+              fill="none"
+              className="w-32"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.066 11.2224C25.6255 4.12759 10.2485 1.4245 6.28029 2.10042C0.327907 3.11399 0.823951 28.9594 6.2803 32C21.6573 30.4797 26.6176 26.4255 33.066 22.8781M33.066 11.2224C33.066 11.2224 35.5462 9.19527 39.0184 9.19527C42.4906 9.19527 44.9708 11.2224 44.9708 11.2224M33.066 11.2224V22.8781M33.066 22.8781C33.066 22.8781 35.0501 24.3984 39.0184 24.3984C42.9867 24.3984 44.9708 22.8781 44.9708 22.8781M44.9708 11.2224C52.4113 4.12759 67.7883 1.4245 71.7565 2.10041C77.7089 3.11398 77.2128 28.9594 71.7565 32C56.3795 30.4797 51.4192 26.4255 44.9708 22.8781M44.9708 11.2224V22.8781" />
+            </svg>
+            <span className="w-full border-b"></span>
+          </span> */}
           <div className="mt-8 flex w-full flex-col justify-between">
-            <Header3 className="text-left px-4">Мужчины</Header3>
+            <Header3 className="px-4 text-left">Мужчины</Header3>
             <div className="mt-8 flex w-full justify-between">
-              <div className="h-[360px] w-64 bg-gray-100"></div>
-              <div className="h-[360px] w-64 bg-gray-100"></div>
-              <div className="h-[360px] w-64 bg-gray-100"></div>
+              <div className="h-[360px] w-64 bg-zinc-100"></div>
+              <div className="h-[360px] w-64 bg-zinc-100"></div>
+              <div className="h-[360px] w-64 bg-zinc-100"></div>
             </div>
           </div>
           <div className="mt-8 flex w-full flex-col justify-between">
-            <Header3 className="text-right px-4">Девушки</Header3>
+            <Header3 className="px-4 text-right">Девушки</Header3>
             <div className="mt-8 flex w-full justify-between">
-              <div className="h-[360px] w-64 bg-gray-100"></div>
-              <div className="h-[360px] w-64 bg-gray-100"></div>
-              <div className="h-[360px] w-64 bg-gray-100"></div>
+              <div className="h-[360px] w-64 bg-zinc-100"></div>
+              <div className="h-[360px] w-64 bg-zinc-100"></div>
+              <div className="h-[360px] w-64 bg-zinc-100"></div>
             </div>
           </div>
         </Section>
         <Section id="chat">
-          <p className="text-balance text-center">
+          <p className="select-text text-balance text-center">
             Предлагаем присоединиться к нашему{" "}
             <span className="cursor-pointer text-blue-400 underline">чату</span>
             , где вы можете подробнее узнать о мероприятии, а также задать
             интересующие вас вопросы!
           </p>
-          <TelegramIcon className="mt-8 h-16 w-16 fill-black" />
+          <TelegramIcon className="mt-8 h-8 w-8 fill-black sm:h-12 sm:w-12" />
         </Section>
-        <div className="w-screen bg-gray-100 h-[480px] sm:h-[640px]" />
       </main>
-      <footer className="flex flex-col items-center justify-center gap-8 py-24">
-        <Navigation />
-        <Button target="top">
-          <svg
-            fill="none"
-            shapeRendering="geometricPrecision"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24">
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            <path d="M16 14l-4-4-4 4" fill="none" />
-          </svg>
-          <span className="text-base">К началу</span>
-        </Button>
-      </footer>
-    </div>
+      <Footer />
+    </>
   )
 }
